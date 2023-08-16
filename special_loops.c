@@ -27,96 +27,82 @@ void printArray(int a, int b);
 void swap(int *a, int *b);
 void print_even_odd(int a);
 void print_number_letters(int a);
+int main(int argc, char **argv); 
 
-int main() 
+int main(int argc, char **argv)
 {
     int a, b;
+    //printf("Enter two numbers: \n");
     scanf("%d\n%d", &a, &b);
-    int x; 
-    if (b > a)
-    {
-        printf("b is greater than a\n");
-    }
-    else if (a > b)
-    {
-        printf("a is greater than b\n");
-        swap(&a, &b);
-    }
-    for (int x = a; x <= b; x++)
-    {
-        switch(x)
-        {
-            case 1:
-                printf("one\n");
-                print_even_odd(x);
-                break;
-            case 2:
-                printf("two\n");
-                print_even_odd(x);
-                break;
-            case 3:
-                printf("three\n");
-                print_even_odd(x);
-                break;
-            case 4:
-                printf("four\n");
-                print_even_odd(x);
-                break;
-            case 5:
-                printf("five\n");
-                print_even_odd(x);
-                break;
-            case 6:
-                printf("six\n");
-                print_even_odd(x);
-                break;
-            case 7:
-                printf("seven\n");
-                print_even_odd(x);
-                break;
-            case 8:
-                printf("eight\n");
-                print_even_odd(x);
-                break;
-            case 9:
-                printf("nine\n");
-                print_even_odd(x);
-                break;
-            default: 
-                print_even_odd(x);
-                break;
-        }
-    }
-    x = a;
-    while(x <= 0)
-    {
-        printf("%d\n", x);
-        x++;
-    }
-    while (x >= 9 && x <= b)
-    {
-        printf("%d\n", x);
-        x++; 
-    }
-    printf("\n");
-    //print the array results here
     printArray(a, b);
     return 0;
 }
 
 void printArray(int a, int b)
 {
-    for (int i = a; i <= b; i++)
+    int i;
+    for (i = a; i <= b; i++)
     {
-        printf("%d\n", i);
+        if (i >= 1 && i <= 9)
+        {
+            print_number_letters(i);
+        }
+        else
+        {
+            print_even_odd(i);
+        }
     }
 }
 
-void swap(int *a, int *b)
+void print_number_letters(int a)
 {
-    int temp = *a;
-    *a = *b;
-    *b = temp;
+    switch (a)
+    {
+    case 1:
+        printf("one\n");
+        break;
+    case 2:
+        printf("two\n");
+        break;
+    case 3:
+        printf("three\n");
+        break;
+    case 4:
+        printf("four\n");
+        break;
+    case 5:
+        printf("five\n");
+        break;
+    case 6:
+        printf("six\n");
+        break;
+    case 7:
+        printf("seven\n");
+        break;
+    case 8:
+        printf("eight\n");
+        break;
+    case 9:
+        printf("nine\n");
+        break;
+    default:
+        break;
+    }
+} 
+
+void print_numbers_to_letters(int a, int b)
+{
+    for(int i=a; i<=b; i++)
+    {
+        if(i>=1 && i <=9)
+        {
+            print_number_letters(i);
+        }
+        else if (i > 9)
+        {
+            print_even_odd(i);
+        }
+    }
 }
 
 void print_even_odd(int a)
@@ -125,52 +111,17 @@ void print_even_odd(int a)
     {
         printf("even\n");
     }
-    else if (a % 2 != 0)
+    else
     {
         printf("odd\n");
     }
 }
 
-void print_number_letters(int a)
+void swap(int *a, int *b)
 {
-    switch(a)
-    {
-        case 1:
-            printf("one\n");
-            break;
-        case 2:
-            printf("two\n");
-            break;
-        case 3:
-            printf("three\n");
-            break;
-        case 4:
-            printf("four\n");
-            break;
-        case 5:
-            printf("five\n");
-            break;
-        case 6:
-            printf("six\n");
-            break;
-        case 7:
-            printf("seven\n");
-            break;
-        case 8:
-            printf("eight\n");
-            break;
-        case 9:
-            printf("nine\n");
-            break;
-        default: 
-            break;
-    }
-    if(a > 9)
-    {
-        printf("Greater than 9\n");
-    }
-    else if (a < 1)
-    {
-        printf("Less than 1\n");
-    }
+    int temp = *a;
+    *a = *b;
+    *b=temp;
 }
+
+
