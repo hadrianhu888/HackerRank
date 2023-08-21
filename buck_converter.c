@@ -68,3 +68,20 @@ int main() {
 
     return 0;
 }
+
+/**
+ * @brief provide example of a realistic calculated example below 
+ * 
+ */
+
+// Enter input voltage (Vin): 12
+// Enter output voltage (Vout): 5
+// Enter output current (Iout): 1
+// Enter switching frequency (fsw) in Hz: 100000
+// Enter allowable output voltage ripple (as a fraction of Vout): 0.05
+// Enter allowable inductor current ripple (as a fraction of Iout): 0.2
+
+// Buck Converter Component Values:
+// Duty Cycle (D): 0.42
+// Inductor Value (L): 1.68e-05 H
+// Capacitor Value (C): 1.68e-05 F
