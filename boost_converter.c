@@ -10,87 +10,36 @@
  */
 
 #include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <stdbool.h>
-#include <unistd.h>
-#include <getopt.h>
 
-double calculateDutyCycle(double Vin, double Vout) {
-    return Vout / Vin;
-}
+int main() {
+    float Vin, Vout, Iout, fsw, rippleVoltage, rippleCurrent;
+    float D, L, C;
 
-double calculateInductorValue(double Vout, double rippleCurrent, double Iout, double fsw, double D) {
-    return (Vout * (1 - D)) / (rippleCurrent * Iout * fsw);
-}
-
-double calculateCapacitorValue(double D, double Vout, double rippleVoltage, double fsw, double Iout) {
-    return D * (1 - D) * Vout / (rippleVoltage * Vout * fsw * Iout);
-}
-
-double calculateVoltageRipple(double D, double Vout, double fsw, double L) {
-    return (1 - D) * Vout / (fsw * L);
-}
-
-double calculateCurrentRipple(double D, double Iout) {
-    return (1 - D) * Iout;
-}
-
-void get_user_inputs(double *Vin, double *Vout, double *Iout, double *fsw, double *rippleVoltage, double *rippleCurrent) {
     printf("Enter input voltage (Vin): ");
-    scanf("%lf", Vin);
+    scanf("%f", &Vin);
 
     printf("Enter output voltage (Vout): ");
-    scanf("%lf", Vout);
+    scanf("%f", &Vout);
 
     printf("Enter output current (Iout): ");
-    scanf("%lf", Iout);
+    scanf("%f", &Iout);
 
     printf("Enter switching frequency (fsw) in Hz: ");
-    scanf("%lf", fsw);
-
-    printf("Enter allowable output voltage ripple (as a fraction of Vout): ");
-    scanf("%lf", rippleVoltage);
+    scanf("%f", &fsw);
 
     printf("Enter allowable inductor current ripple (as a fraction of Iout): ");
-    scanf("%lf", rippleCurrent);
-}
+    scanf("%f", &rippleCurrent);
 
-void get_results(double Vin, double Vout, double Iout, double fsw, double rippleVoltage, double rippleCurrent, double *D, double *L, double *C, double *deltaI, double *deltaV) {
-    *D = calculateDutyCycle(Vin, Vout);
-    *L = calculateInductorValue(Vout, rippleCurrent, Iout, fsw, *D);
-    *C = calculateCapacitorValue(*D, Vout, rippleVoltage, fsw, Iout);
-    *deltaV = calculateVoltageRipple(*D, Vout, fsw, *L);
-    *deltaI = calculateCurrentRipple(*D, Iout);
-}
+    D = (Vout - Vin) / Vout;
 
-void display_input_output(double Vin, double Vout, double Iout, double fsw, double rippleVoltage, double rippleCurrent, double D, double L, double C, double deltaI, double deltaV) {
-    printf("\n");
-    printf("Input parameters:\n");
-    printf("Vin = %lf\n", Vin);
-    printf("Vout = %lf\n", Vout);
-    printf("Iout = %lf\n", Iout);
-    printf("fsw = %lf\n", fsw);
-    printf("rippleVoltage = %lf\n", rippleVoltage);
-    printf("rippleCurrent = %lf\n", rippleCurrent);
-    printf("\n");
-    printf("Calculated parameters:\n");
-    printf("D = %lf\n", D);
-    printf("L = %lf\n", L);
-    printf("C = %lf\n", C);
-    printf("deltaI = %lf\n", deltaI);
-    printf("deltaV = %lf\n", deltaV);
-}
+    L = (Vin * (1 - D)) / (rippleCurrent * Iout * fsw);
 
-int main(int argc, char *argv[]) {
-    double Vin, Vout, Iout, fsw, rippleVoltage, rippleCurrent;
-    double D, L, C, deltaI, deltaV;
+    C = D * (1 - D) / (rippleVoltage * Vout * fsw * Iout);
 
-    get_user_inputs(&Vin, &Vout, &Iout, &fsw, &rippleVoltage, &rippleCurrent);
-    get_results(Vin, Vout, Iout, fsw, rippleVoltage, rippleCurrent, &D, &L, &C, &deltaI, &deltaV);
-    display_input_output(Vin, Vout, Iout, fsw, rippleVoltage, rippleCurrent, D, L, C, deltaI, deltaV);
+    printf("\nBoost Converter Component Values:\n");
+    printf("Duty Cycle (D): %.2f\n", D);
+    printf("Inductor Value (L): %.2e H\n", L);
+    printf("Capacitor Value (C): %.2e F\n", C);
 
     return 0;
 }
