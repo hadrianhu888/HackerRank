@@ -1,1 +1,15 @@
 *.exe 
+.vscode/ 
+.vs/ 
+*.suo
+*.def 
+*.pdb
+*.idb
+*.manifest
+*.res
+*.aps
+*.pch
+*.tlb
+*.tlh
+*.bak
+*.cache

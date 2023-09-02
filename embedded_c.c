@@ -13,163 +13,232 @@
 
 // Function prototypes
 
-analog_t analogRead(analog_t *analog)
+// Function prototypes
+
+void print_array(int *arr, int size)
 {
-    return *analog;
+    for (int i = 0; i < size; i++)
+    {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
 }
-analog_t analogWrite(analog_t *analog)
+void print_array2(int arr[], int size)
 {
-    analog_t *in = analog;
-    return *in;
+    for (int i = 0; i < size; i++)
+    {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
 }
-
-pin_t pinMode(pin_t *pin)
+void print_array3(int arr[static 1], int size)
 {
-    return *pin;
+    for (int i = 0; i < size; i++)
+    {
+        printf("arr[%d] = %d\n", i, arr[i]);
+    }
 }
-digital_t digitalWrite(digital_t *digital)
+
+// state functions 
+
+void state_function(state_t state)
 {
-    return *digital;
+    switch (state)
+    {
+    case OFF:
+        printf("OFF\n");
+        break;
+    case ON:
+        printf("ON\n");
+        break;
+    case IDLE:
+        printf("IDLE\n");
+        break;
+    case SLEEP:
+        printf("SLEEP\n");
+        break;
+    default:
+        printf("Invalid state\n");
+        break;
+    }
 }
-digit_t digitalRead(digital_t *digital)
+state_t state_function2(state_t state)
 {
-    return *digital;
+    switch (state)
+    {
+    case OFF:
+        printf("OFF\n");
+        break;
+    case ON:
+        printf("ON\n");
+        break;
+    case IDLE:
+        printf("IDLE\n");
+        break;
+    case SLEEP:
+        printf("SLEEP\n");
+        break;
+    default:
+        printf("Invalid state\n");
+        break;
+    }
+    return state;
+}
+state_t state_function3(state_t state)
+{
+    switch (state)
+    {
+    case OFF:
+        printf("OFF\n");
+        break;
+    case ON:
+        printf("ON\n");
+        break;
+    case IDLE:
+        printf("IDLE\n");
+        break;
+    case SLEEP:
+        printf("SLEEP\n");
+        break;
+    default:
+        printf("Invalid state\n");
+        break;
+    }
+    return state;
 }
 
-time_t delay(time_t *time);
-time_t delayMicroseconds(time_t *time);
+// pointer functions
 
-interrupt_t attachInterrupt(interrupt_t *interrupt);
-interrupt_t detachInterrupt(interrupt_t *interrupt);
+void pointer_function(int *ptr)
+{
+    printf("ptr = %p\n", ptr);
+}
+void pointer_function2(int *ptr)
+{
+    printf("ptr = %p\n", ptr);
+}
+void pointer_function3(int *ptr)
+{
+    printf("ptr = %p\n", ptr);
+}
 
-interrupt_t interrupts(interrupt_t *interrupt);
-interrupt_t noInterrupts(interrupt_t *interrupt);
+// array functions
 
-int setup(void);
-int loop(void);
+void array_function(int arr[])
+{
+    printf("arr = %p\n", arr);
+}
+void array_function2(int arr[static 1])
+{
+    printf("arr = %p\n", arr);
+}
+void array_function3(int *arr)
+{
+    printf("arr = %p\n", arr);
+}
 
-serial_t Serial_begin(serial_t *serial);
-serial_t Serial_print(serial_t *serial);
-serial_t Serial_println(serial_t *serial);
-serial_t Serial_read(serial_t *serial);
-serial_t Serial_readln(serial_t *serial);
-serial_t Serial_available(serial_t *serial);
-serial_t Serial_flush(serial_t *serial);
-serial_t Serial_end(serial_t *serial);
-serial_t Serial_write(serial_t *serial);
+// structure functions
 
-random_t randomSeed(randopm_t *random);
-random_t random(random_t *random);
+void structure_function(point_t point)
+{
+    printf("point.x = %d\n", point.x);
+    printf("point.y = %d\n", point.y);
+}
+void structure_function2(point_t *point)
+{
+    printf("point->x = %d\n", point->x);
+    printf("point->y = %d\n", point->y);
+}
+void structure_function3(point_t point)
+{
+    printf("point.x = %d\n", point.x);
+    printf("point.y = %d\n", point.y);
+}
 
-tone_t tone(tone_t *tone);
-tone_t noTone(tone_t *tone);
+// union functions
 
-shift_t shiftOut(shift_t *shift);
-shift_t shiftIn(shift_t *shift);
+void union_function(point_t point)
+{
+    printf("point.x = %d\n", point.x);
+    printf("point.y = %d\n", point.y);
+}
 
-pulse_t pulseIn(pulse_t *pulse);
-pulse_t pulseInLong(pulse_t *pulse);
-pulse_t millis(pulse_t *pulse);
-pulse_t micros(pulse_t *pulse);
-pulse_t nanos(pulse_t *pulsed);
-pulse_t picos(pulse_t *pulse);
+// bit field functions
 
-double min(double x, double y);
-double max(double x, double y);
-double abs(double x);
-double constrain(double x, double a, double b);
-double map(double x, double y, double a, double b);
-double pow(double x, double y);
-double sqrt(double x);
-double sin(double x);
-double cos(double x);
-double tan(double x);
-double asin(double x);
-double acos(double x);
-double exp(double x);
-double log(double x);
-double log10(double x);
-double logn(double x);
+void bit_field_function(bit_field_t bit_field)
+{
+    printf("bit_field.x = %d\n", bit_field.x);
+    printf("bit_field.y = %d\n", bit_field.y);
+    printf("bit_field.z = %d\n", bit_field.z);
+}
 
-pulse_t lowByte(pulse_t pulse);
-pulse_t highByte(pulse_t pulse);
-pulse_t bitRead(pulse_t pulse);
-pulse_t bitWrite(pulse_t pulse);
-pulse_t bitSet(pulse_t pulse);
-pulse_t bitClear(pulse_t pulse);
-pulse_t bit(pulse_t pulse);
+// bit field functions
 
-void CAN_Cluster_init(void);
-void CAN_Cluster_send(void);
-void CAN_Cluster_receive(void);
-void CAN_Cluster_filter(void);
-void CAN_Cluster_flush(void);
-void CAN_Cluster_available(void);
-void CAN_Cluster_read(void);
-void CAN_Cluster_write(void);
+void bit_field_function2(bit_field_t bit_field)
+{
+    printf("bit_field.x = %d\n", bit_field.x);
+    printf("bit_field.y = %d\n", bit_field.y);
+    printf("bit_field.z = %d\n", bit_field.z);
+}
 
-void SPI_init(void);
-void SPI_transfer(void);
-void SPI_transfer16(void);
-void SPI_transfer32(void);
-void SPI_transfer64(void);
-void SPI_transferNB(void);
-void SPI_transfer16NB(void);
-void SPI_transfer32NB(void);
-void SPI_transfer64NB(void);
-void SPI_write(void);
-void SPI_write16(void);
-void SPI_write32(void);
-void SPI_write64(void);
-void SPI_writeNB(void);
-void SPI_write16NB(void);
-void SPI_write32NB(void);
-void SPI_write64NB(void);
-void SPI_read(void);
-void SPI_read16(void);
-void SPI_read32(void);
-void SPI_read64(void);
-void SPI_readNB(void);
+// bit manipulation functions
 
-void Wire_begin(void);
-void Wire_beginTransmission(void);
-void Wire_endTransmission(void);
-void Wire_requestFrom(void);
-void Wire_write(void);
+void bit_manipulation_function(uint8_t data)
+{
+    printf("data = %d\n", data);
+    printf("bit 0 = %d\n", (data >> 0) & 0x01);
+    printf("bit 1 = %d\n", (data >> 1) & 0x01);
+    printf("bit 2 = %d\n", (data >> 2) & 0x01);
+    printf("bit 3 = %d\n", (data >> 3) & 0x01);
+    printf("bit 4 = %d\n", (data >> 4) & 0x01);
+    printf("bit 5 = %d\n", (data >> 5) & 0x01);
+    printf("bit 6 = %d\n", (data >> 6) & 0x01);
+    printf("bit 7 = %d\n", (data >> 7) & 0x01);
+}
 
-void ethernet_read(void); 
-void ethernet_init(void);
-void ethernet_write(void);
-void ethernet_available(void);
-void ethernet_server_init(void);
-void ethernet_server_available(void);
-void ethernet_server_write(void);
-void ethernet_server_read(void);
-void ethernet_client_init(void);
-void ethernet_client_available(void);
-void ethernet_client_write(void);
-void ethernet_client_read(void);
+int main(int argc, char **argv)
+{
+    // array
+    int arr[5] = {0, 1, 2, 3, 4};
+    print_array(arr, 5);
+    print_array2(arr, 5);
+    print_array3(arr, 5);
 
-void SD_init(void);
-void SD_open(void);
-void SD_close(void);
-void SD_read(void);
-void SD_write(void);
-void SD_available(void);
-void SD_flush(void);
-void SD_seek(void);
-void SD_position(void);
-void SD_size(void);
-void SD_remove(void);
-void SD_rename(void);
-void SD_truncate(void);
-void SD_mkdir(void);
-void SD_rmdir(void);
-void SD_ls(void);
-void SD_cd(void);
-void SD_pwd(void);
-void SD_cat(void);
+    // state
+    state_function(OFF);
+    state_function(ON);
+    state_function(IDLE);
+    state_function(SLEEP);
 
-// Main function
+    // pointer
+    int x = 0;
+    int *ptr = &x;
+    pointer_function(ptr);
+    pointer_function2(ptr);
+    pointer_function3(ptr);
 
-int main(int argc, char **argv);
+    // array
+    array_function(arr);
+    array_function2(arr);
+    array_function3(arr);
+
+    // structure
+    point_t point = {0, 1};
+    structure_function(point);
+    structure_function2(&point);
+    structure_function3(point);
+
+    // union
+    union_function(point);
+
+    // bit field
+    bit_field_t bit_field = {0};
+    bit_field.x = 1;
+    bit_field.y = 1;
+    bit_field.z = 1;
+    bit_field_function(bit_field);
+    bit_field_function2(bit_field);
+
+    // bit manipulation
+    bit_manipulation_function(0x55);
+
+    return 0;
+}
