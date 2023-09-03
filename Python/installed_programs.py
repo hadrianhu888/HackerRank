@@ -7,4 +7,4 @@ def save_installed_programs_windows(filename):
         # Check return code (0 usually indicates success)
         print("Return code:", completed_process.returncode)
 
-save_installed_programs_windows('installed_programs.txt')
+save_installed_programs_windows('.\\installed_programs.txt')
