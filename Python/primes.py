@@ -1,7 +1,6 @@
 # find all primes of any given number 
 
 import math
-import sys
 
 def is_prime(n):
     """
