@@ -1,8 +1,8 @@
-*.exe 
-.vscode/ 
-.vs/ 
+*.exe
+.vscode/
+.vs/
 *.suo
-*.def 
+*.def
 *.pdb
 *.idb
 *.manifest
@@ -13,4 +13,11 @@
 *.tlh
 *.bak
 *.cache
+*.ilk
+*.log
+*.ncb
+*.txt
+*.sdf
+*.opensdf
+*.sln.docstates
 __pycache__/
