@@ -1,4 +1,5 @@
 {
+	{
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
@@ -38,10 +39,7 @@
   "C_Cpp_Runner.compilerArgs": [],
   "C_Cpp_Runner.linkerArgs": [],
   "C_Cpp_Runner.includePaths": [],
-  "C_Cpp_Runner.includeSearch": [
-    "*",
-    "**/*"
-  ],
+  "C_Cpp_Runner.includeSearch": ["*", "**/*"],
   "C_Cpp_Runner.excludeSearch": [
     "**/build",
     "**/build/**",
@@ -55,14 +53,22 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "python.pythonPath": "C:/Users/lordx101/AppData/Local/Programs/Python/Python311/python.exe",
-  "python.testing.unittestArgs": [
-    "-v",
-    "-s",
-    "./Python",
-    "-p",
-    "*_test.py"
-  ],
+  "python.testing.unittestArgs": ["-v", "-s", "./Python", "-p", "*_test.py"],
   "python.testing.pytestEnabled": false,
   "python.testing.unittestEnabled": true,
+},
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "pythonPath": "C:\\Users\\lordx\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
+    }
+  ]
 }
+
+
+
