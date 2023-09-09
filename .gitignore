@@ -21,3 +21,8 @@
 *.opensdf
 *.sln.docstates
 __pycache__/
+__pycache__/*
+*.pyc
+*.pyo
+*.pyd
+*.so
